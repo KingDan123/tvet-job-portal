@@ -6,7 +6,7 @@ import { requireRole } from '@/lib/middleware';
 
 export async function GET(request: NextRequest) {
   try {
-    const userResult = requireRole(request, ['company']);
+    const userResult = await requireRole(request, ['company']);
     if (userResult instanceof NextResponse) return userResult;
     const user = userResult;
 

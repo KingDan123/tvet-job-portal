@@ -9,7 +9,7 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const userResult = requireRole(request, ['company']);
+    const userResult = await requireRole(request, ['company']);
     if (userResult instanceof NextResponse) return userResult;
     const user = userResult;
 

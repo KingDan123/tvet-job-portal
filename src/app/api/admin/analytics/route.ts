@@ -6,7 +6,7 @@ import { requireRole } from '@/lib/middleware';
 
 export async function GET(request: NextRequest) {
   try {
-    const userResult = requireRole(request, ['admin']);
+    const userResult = await requireRole(request, ['admin']);
     if (userResult instanceof NextResponse) return userResult;
 
     // Placements by Sector

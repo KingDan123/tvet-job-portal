@@ -172,6 +172,12 @@ export default function AdminDashboard() {
               >
                 🔍 Audit Log
               </a>
+              <a
+                href="/dashboard/admin/settings"
+                className="block px-4 py-3 hover:bg-gray-50 rounded-lg transition"
+              >
+                ⚙️ Settings
+              </a>
             </nav>
           </aside>
 

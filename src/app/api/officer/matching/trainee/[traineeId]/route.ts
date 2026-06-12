@@ -15,7 +15,7 @@ export async function GET(
   { params }: { params: Promise<{ traineeId: string }> }
 ) {
   try {
-    const userResult = requireRole(request, ['officer', 'admin']);
+    const userResult = await requireRole(request, ['officer', 'admin']);
     if (userResult instanceof NextResponse) return userResult;
 
     const { traineeId } = await params;

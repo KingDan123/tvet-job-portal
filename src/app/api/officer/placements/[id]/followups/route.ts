@@ -16,7 +16,7 @@ export async function POST(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const userResult = requireRole(request, ['officer', 'admin']);
+    const userResult = await requireRole(request, ['officer', 'admin']);
     if (userResult instanceof NextResponse) return userResult;
 
     const { id: placementId } = await params;

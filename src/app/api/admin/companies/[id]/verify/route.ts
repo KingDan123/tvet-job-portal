@@ -19,7 +19,7 @@ export async function POST(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const userResult = requireRole(request, ['admin']);
+    const userResult = await requireRole(request, ['admin']);
     if (userResult instanceof NextResponse) return userResult;
 
     const { id } = await params;

@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
-    const userResult = requireRole(request, ['admin']);
+    const userResult = await requireRole(request, ['admin']);
     if (userResult instanceof NextResponse) return userResult;
 
     const body = await request.json();

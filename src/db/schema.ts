@@ -446,6 +446,14 @@ export const auditLog = pgTable('audit_log', {
   createdIdx: index('audit_log_created_idx').on(table.createdAt),
 }));
 
+export const systemSettings = pgTable('system_settings', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  key: varchar('key', { length: 100 }).notNull().unique(),
+  value: text('value').notNull(),
+  description: text('description'),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+});
+
 // ============================================================
 // RELATIONS (for Drizzle query builder)
 // ============================================================

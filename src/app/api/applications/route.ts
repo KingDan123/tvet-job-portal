@@ -19,7 +19,7 @@ const applicationSchema = z.object({
 export async function POST(request: NextRequest) {
   try {
     // Only trainees can apply
-    const userResult = requireRole(request, ['trainee']);
+    const userResult = await requireRole(request, ['trainee']);
     if (userResult instanceof NextResponse) return userResult;
     const user = userResult;
 
@@ -103,7 +103,7 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
-    const userResult = requireRole(request, ['trainee']);
+    const userResult = await requireRole(request, ['trainee']);
     if (userResult instanceof NextResponse) return userResult;
     const user = userResult;
 

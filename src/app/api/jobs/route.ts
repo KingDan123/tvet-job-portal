@@ -121,7 +121,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     // Only companies can create jobs
-    const userResult = requireRole(request, ['company']);
+    const userResult = await requireRole(request, ['company']);
     if (userResult instanceof NextResponse) return userResult;
     const user = userResult;
 

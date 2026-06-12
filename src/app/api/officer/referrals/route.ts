@@ -18,7 +18,7 @@ const referralCreateSchema = z.object({
 
 export async function GET(request: NextRequest) {
   try {
-    const userResult = requireRole(request, ['officer', 'admin']);
+    const userResult = await requireRole(request, ['officer', 'admin']);
     if (userResult instanceof NextResponse) return userResult;
     const user = userResult;
 
@@ -77,7 +77,7 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
-    const userResult = requireRole(request, ['officer', 'admin']);
+    const userResult = await requireRole(request, ['officer', 'admin']);
     if (userResult instanceof NextResponse) return userResult;
     const user = userResult;
 

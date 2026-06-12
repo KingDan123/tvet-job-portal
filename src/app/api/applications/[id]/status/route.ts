@@ -14,7 +14,7 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const userResult = requireRole(request, ['company', 'officer']);
+    const userResult = await requireRole(request, ['company', 'officer']);
     if (userResult instanceof NextResponse) return userResult;
     const user = userResult;
 
